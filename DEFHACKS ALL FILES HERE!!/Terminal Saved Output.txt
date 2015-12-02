@@ -1,0 +1,48 @@
+Last login: Sat Mar 28 14:25:41 on ttys002
+localhost:~ chloekaubisch$ cd defhacks
+localhost:defhacks chloekaubisch$ cd textdata/
+localhost:textdata chloekaubisch$ touch math.txt
+localhost:textdata chloekaubisch$ nano math.txt 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  GNU nano 2.0.6              File: math.txt                          Modified  
+
+lostal
+sternj
+sterr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell

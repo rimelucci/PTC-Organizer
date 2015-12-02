@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+    <title>
+        Parent Teacher Conference Organizer!
+    </title>
+    
+    <head>
+    <script language=javascript>
+var ClientDate = new Date();
+var ClientStartTime=0;
+var PeriodNames = new Array();
+var PeriodStarts = new Array();
+var PeriodEnds = new Array();
+function Init()
+{
+    ClientStartTime = ClientSeconds();
+    Tick();
+}
+function Tick()
+{   
+    document.all['seconds'].innerHTML = DisplaySeconds();
+    document.all['hours_minutes'].innerHTML = DisplayHoursMinutes();
+    setTimeout('Tick()',1000);
+}
+
+function ClientSeconds()
+{   var d = new Date();
+ 
+    var newSeconds = d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+    var oldSeconds = ClientDate.getHours() * 3600 + ClientDate.getMinutes() * 60 + ClientDate.getSeconds();
+
+    return 210 - ((newSeconds - oldSeconds) % 210);
+}
+
+function DisplaySeconds()
+{   var secs = ClientSeconds() % 60;
+    if (secs < 10)
+        return ':0'+secs.toString();
+    else
+        return ':'+secs.toString();
+}
+        
+function DisplayHoursMinutes()
+{   var mins = Math.floor(ClientSeconds()/60);
+    return '0'+mins;
+}
+        </script>
+        
+        <style>
+        body{
+            background-color: beige;
+        }
+    
+        .nextline{
+            display: block;
+            padding-top: 25px;
+            padding-bottom: 0px;
+        }
+            
+        .boxit{
+            display: inline-table;
+            padding-top: 0px;
+            margin: 50px;
+            border: 25px ;
+            border-style: outset;
+            border-color: blue;
+        }
+            
+        .table1{
+            border: 1px solid black;
+        }    
+        
+            
+        </style>
+    </head>
+    
+    
+    <h1>
+        <center>
+        Parent Teacher Conference Organizer
+        </center>
+    </h1>
+    
+    <body onload="Tick()">
+        <center>
+            <u>If you have not signed up for a slot yet, please fill this out:</u>
+            
+            <div class="nextline">
+		<form action="/successPage" method="GET">
+		{% block times %}
+{{t|safe}}
+		{% endblock %}	
+
+                <input style="text" name="parentName" placeholder="Parent Name">       
+
+                <input style="text" name="studentName" placeholder="Student Name">
+
+		<input type="submit" name="submit">
+		</form>
+            </div>
+        </center>
+        
+        <center>
+        <table>
+            
+            
+        <tr>
+            <td>
+            <div class="boxit">
+                <table class="table1">
+                    <tr><td class="table1" colspan="3" align="center"><h2>Room List</h2></td></tr>
+                    <tr>
+                        <td class="table1"><b>Time:</b></td>
+                        <td class="table1">
+                            <b>Parent Name:</b>
+                        </td>
+                        <td class="table1">
+                            <b>Student Name:</b>
+                        </td>
+                    </tr>
+                    
+		{% block content %}
+                    <tr>
+                        <td class="table1">3:00</td>
+                        <td class="table1">
+                            Homer and Marge Simpson
+                            <!-- Insert data here -->
+                        </td>
+                        <td class="table1">
+                            Bart and Lisa Simpson
+                        </td>
+                    </tr>
+		{% endblock %}
+                </table>
+            </div>    
+        </td>
+            
+            
+            
+        <td>
+            <div class="boxit">
+            <table class="table1">
+                <tr>
+                    <td class="table1"><h2>Current Interview Countdown</h2></td>
+                </tr>
+                
+                <tr>
+                    <td class="table1">
+                        <center>
+                            <label id="hours_minutes"></label>
+                            <label id="seconds"></label>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </td>
+        
+        </tr>
+            
+        </table>
+        </center>
+    </body>
+    
+    
+</html>

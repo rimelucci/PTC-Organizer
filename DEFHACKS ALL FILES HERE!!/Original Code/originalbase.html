@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+    <title>
+        Parent Teacher Conference Organizer!
+    </title>
+    
+    <head>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <style>
+        body{
+            background-color: beige;
+        }
+    
+        div{
+            width: 400px;
+            padding: 50px;
+            margin: 50px;
+            border: 25px ;
+            border-style: outset;
+            border-color: blue;
+        }
+        </style>
+    </head>
+    
+    
+    <h1>
+        <center>
+        Parent Teacher Conference Organizer
+        </center>
+    </h1>
+    
+    <body>
+        <center>
+            <div>
+		<form action="/teacherPage" method="GET">
+                <select name = "subject" id="subject">
+                    <option "" disabled selected>--Select Subject--</option>
+                    <option value="bio">Biology</option>
+               	    <option value="math">Math</option>
+		    <option value="chem">Chemistry</option>
+		    <option value="physics">Physics</option>
+                    <option value="english">English</option>
+                    <option value="ss">Social Studies</option>
+                    <option value="lang">Language</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="tech">Tech</option>
+		    <option value="art">Art</option>
+		    <option value="music">Music</option>
+		    <option value="health">Health</option>
+		    <option value="pe">Physical Education</option>
+                </select>
+                
+                <select name = "teacher" id="teacher">
+                    <option value="" disabled selected>--Choose a Subject First--</option>
+                    
+                </select>  
+                <input type="submit" name="submit">
+		</form>
+            </div>
+        </center>
+<!--
+	<script>
+		var subject = document.getElementById("subject");
+		subject.addEventListener("input", function(elem){
+			console.log("Subject Clicked!");
+			console.log(elem);
+			console.log(subject.value);	
+			sub = subject.value;
+			if (sub == "chem"){
+				var teachers = document.getElementById("teacher");
+				console.log("selected chem?");
+				
+				
+			}
+				
+		});
+
+	</script>
+-->
+
+	<script>
+	$("#subject").change(function() {
+  	 $("#teacher").load($(this).val() + ".txt");
+	});
+	</script>
+   </body>
+    
+    
+</html>

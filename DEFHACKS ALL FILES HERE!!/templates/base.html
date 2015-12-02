@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <title>
+        Parent Teacher Conference Organizer!
+    </title>
+    
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+        <style>
+        body{
+            background-color: #5bc0de;
+        }
+        
+        </style>
+    </head>
+    
+    <div class="container jumbotron" style="background-color: #428bca ; border-radius:30px">
+    <h1>
+        <center>
+            <a href="http://tinypic.com?ref=2iw3qkl" target="_blank"><img src="http://i59.tinypic.com/2iw3qkl.jpg" class="img-thumbnail" style="border-radius: 30px" alt="oops"></a>
+        </center>
+    </h1>
+    
+    <body>
+        <center>
+            <div class="container jumbotron" style="border-radius: 30px ; background-color: #f0ad4e ; width: 400px">
+	<form action="/teacherPage" method="GET">
+                <select class="form-control" style="width: 150px" name="subject" id="subject">
+                    <option "" disabled selected>--Select Subject--</option>
+                    <option value="bio">Biology</option>
+               	    <option value="math">Math</option>
+		    <option value="chem">Chemistry</option>
+		    <option value="physics">Physics</option>
+                    <option value="english">English</option>
+                    <option value="ss">Social Studies</option>
+                    <option value="lang">Language</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="tech">Tech</option>
+		    <option value="art">Art</option>
+		    <option value="music">Music</option>
+		    <option value="health">Health</option>
+		    <option value="pe">Physical Education</option>
+                </select>
+                <br>
+                <select class="form-control" style="width: 150px" name="teacher" id = "teacher">
+                    <option value="" disabled selected>--Select a teacher--</option>
+                      
+                <br>
+                <input class="form-control" style="width:100px" type="submit" name="submit">
+
+            </div>
+            <script>
+	$("#subject").change(function() {
+  	 $("#teacher").load($(this).val() + ".txt");
+	});
+	</script>
+                </select>   
+        </center>
+</form>
+       
+    </body>
+    </div>
+    
+</html>

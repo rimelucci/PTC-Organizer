@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+      <title><center> defhacks() </center></title>
+    </head>
+    
+    <body>
+      {% block content %}
+      HTML OMG
+      {% endblock %}
+    </body>
+
+</html>
